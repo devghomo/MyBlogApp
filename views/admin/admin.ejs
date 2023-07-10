@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+    <!-- Page Header-->
+    <header class="masthead"
+        style="background-image: url('https://images.unsplash.com/photo-1682687220015-186f63b8850a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h1>Admin Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="d-flex justify-content-start align-items-center">
+                    <div class="btn-group-vertical" role="group" aria-label="Button Group">
+                        <% adminActions.forEach((action)=> { %>
+                            <button id="<%= action.actionId %>" onclick="catchID(this.id)" type="button"
+                                class="btn btn-outline-dark">
+                                <%= action.displayName %>
+                            </button>
+
+                            <% }) %>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+
+    <script>
+        function catchID(clicked_id) {
+
+            if (clicked_id == 1) {
+                window.location.href = "signup"
+                return false;
+
+            } if (clicked_id == 2) {
+                window.location.href = "addNewBlog"
+                return false;
+
+            }
+
+        }
+    </script>
+
+    <!-- Footer-->
+    <%- include('../partials/footer') %>

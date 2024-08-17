@@ -36,7 +36,7 @@ router.get("/signup", isLoggedIn, (req, res) => {
 });
 router.post("/signup", isLoggedIn, (req, res) => {
     const { username, password, name } = req.body;
-    const newUser = new User({ username, name }); // name alanını kaydet
+    const newUser = new User({ username, name }); 
     User.register(newUser, req.body.password, (err, user) => {
         if (err) {
             console.log(err);
@@ -48,7 +48,6 @@ router.post("/signup", isLoggedIn, (req, res) => {
     });
 });
 
-// Diğer rotalar...
 
 router.get('/signout', function (req, res) {
     req.logout(function (err) {
